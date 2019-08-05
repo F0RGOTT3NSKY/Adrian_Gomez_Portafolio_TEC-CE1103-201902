@@ -58,7 +58,8 @@ public class Main extends Application {
 	 	         try {
 	 	        	 int ExcesoColumnas = fields.length;
 	 	        	 if (ExcesoColumnas==2) {
-	 	        		 Object nulo = null;
+	 	        		 @SuppressWarnings("unused")
+						Object nulo = null;
 	 	        	 }
 	 	        	 else {
 	 	        		 System.out.println(fields[ExcesoColumnas]);	 	        
