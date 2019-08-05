@@ -14,8 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
-@SuppressWarnings("unused")
 public class Main extends Application {
 	public static final String SEPARATOR=";";
 	public static final String QUOTE="\"";
@@ -37,7 +35,6 @@ public class Main extends Application {
         tableView.getColumns().add(column2);
         
         BufferedReader br = null;
-		String Change = null;
 		try {
 	         br =new BufferedReader(new FileReader("files/Libro1.csv"));
 	         String line = br.readLine();
