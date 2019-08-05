@@ -38,7 +38,7 @@ public class Main extends Application {
         
         BufferedReader br = null;
 		try {
-	         br =new BufferedReader(new FileReader("files/Libro1_ColumnaExtra.csv"));
+	         br =new BufferedReader(new FileReader("files/Libro1.csv"));
 	         String line = br.readLine();
 	         try {
 	        	 String [] Archivo = line.split(SEPARATOR);
@@ -57,9 +57,8 @@ public class Main extends Application {
 	 	         String Segundo = fields[1];
 	 	         try {
 	 	        	 int ExcesoColumnas = fields.length;
-	 	        	 System.out.println(ExcesoColumnas);
 	 	        	 if (ExcesoColumnas==2) {
-	 	        		 System.out.println("");
+	 	        		 Object nulo = null;
 	 	        	 }
 	 	        	 else {
 	 	        		 System.out.println(fields[ExcesoColumnas]);	 	        
