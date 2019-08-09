@@ -27,7 +27,7 @@ public class Main extends Application {
 
     @SuppressWarnings("unchecked")
 	@Override
-    public void start(Stage primaryStage) throws FileNotFoundException {
+    public void start(Stage primaryStage) throws FileNotFoundException,ArrayIndexOutOfBoundsException,FileNotFoundException {
         @SuppressWarnings("rawtypes")
 		TableView tableView = new TableView();
         TableColumn<String, Person> column1 = new TableColumn<>("First Name");
