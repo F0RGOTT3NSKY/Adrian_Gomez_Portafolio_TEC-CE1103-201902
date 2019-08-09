@@ -2,6 +2,7 @@ package application;
 	
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class Main extends Application {
 
     @SuppressWarnings("unchecked")
 	@Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws FileNotFoundException {
         @SuppressWarnings("rawtypes")
 		TableView tableView = new TableView();
         TableColumn<String, Person> column1 = new TableColumn<>("First Name");
@@ -38,16 +39,8 @@ public class Main extends Application {
         
         BufferedReader br = null;
 		try {
-	         br =new BufferedReader(new FileReader("files/Libro1.csv"));
+	         br =new BufferedReader(new FileReader("files/Libro1_ColumnaExtra.csv"));
 	         String line = br.readLine();
-	         try {
-	        	 String [] Archivo = line.split(SEPARATOR);
- 	        	 @SuppressWarnings("unused")
-				String ArchivoVacio = Archivo[0];
- 	         }catch(Exception g){
- 	        	System.err.println("ERROR el archivo esta vacio! "+g.getMessage());
- 	        	JOptionPane.showMessageDialog(null, "El archivo esta vacio!", "ERROR", JOptionPane.ERROR_MESSAGE); 
- 	         }
 	         while (null!=line){
 	 	         String [] fields = line.split(SEPARATOR);
 	 	         System.out.println(Arrays.toString(fields));
@@ -72,8 +65,14 @@ public class Main extends Application {
 	 	         System.out.println(Arrays.toString(fields));
 	 	         line = br.readLine();   
 	         }
-	         
-	      } catch (Exception e) {
+		  } catch (ArrayIndexOutOfBoundsException t) {
+			 System.err.println("ERROR el archivo tiene Filas en blanco!");
+			 JOptionPane.showMessageDialog(null, "El archivo tiene Filas en blanco!", "ERROR", JOptionPane.ERROR_MESSAGE);
+		  } catch (FileNotFoundException r) {
+			 System.err.println("Error! "+r.getMessage());
+			 JOptionPane.showMessageDialog(null, "The system cannot find the file specified!", "ERROR", JOptionPane.ERROR_MESSAGE); 
+			 
+		  } catch (Exception e) {
 	         System.err.println("Error! "+e.getMessage());
 	         
 	      } finally {
