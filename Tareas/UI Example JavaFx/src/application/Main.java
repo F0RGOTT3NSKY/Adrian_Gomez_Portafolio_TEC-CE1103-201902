@@ -39,7 +39,7 @@ public class Main extends Application {
         
         BufferedReader br = null;
 		try {
-	         br =new BufferedReader(new FileReader("files/Libro1_ColumnaExtra.csv"));
+	         br =new BufferedReader(new FileReader("files/Libro1.csv"));
 	         String line = br.readLine();
 	         while (null!=line){
 	 	         String [] fields = line.split(SEPARATOR);
@@ -73,7 +73,7 @@ public class Main extends Application {
 			 JOptionPane.showMessageDialog(null, "The system cannot find the file specified!", "ERROR", JOptionPane.ERROR_MESSAGE); 
 			 
 		  } catch (Exception e) {
-	         System.err.println("Error! "+e.getMessage());
+	         System.err.println("Error inesperado! "+e.getMessage());
 	         
 	      } finally {
 	         if (null!=br){
